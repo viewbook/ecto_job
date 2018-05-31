@@ -261,7 +261,7 @@ defmodule EctoJob.JobQueue do
   def reservation_expiry(now = %DateTime{}) do
     now
     |> DateTime.to_unix()
-    |> Kernel.+(300)
+    |> Kernel.+(1800)
     |> DateTime.from_unix!()
   end
 
@@ -314,7 +314,7 @@ defmodule EctoJob.JobQueue do
   def progress_expiry(now, attempt) do
     now
     |> DateTime.to_unix()
-    |> Kernel.+(300 * attempt)
+    |> Kernel.+(1800 * attempt)
     |> DateTime.from_unix!()
   end
 
